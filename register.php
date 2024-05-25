@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$db   = "Negozio";
+$db   = "negozio";
 $username = "root";
 $pass = "";
 
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
     // Verifica se l'utente esiste già nel database
-    $stmt_check = $conn->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt_check = $conn->prepare("SELECT * FROM utenti WHERE username = ?");
     $stmt_check->bind_param("s", $username);
     $stmt_check->execute();
     $result = $stmt_check->get_result();
@@ -28,11 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = md5($password); // Usando l'MD5 per criptare la password
 
         
-        $stmt_insert = $conn->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
+        $stmt_insert = $conn->prepare("INSERT INTO utenti (username, password, email) VALUES (?, ?, ?)");
         $stmt_insert->bind_param("sss", $username, $hashed_password, $email);
 
         if ($stmt_insert->execute()) {
-            header("Location: template.html");
+            header("Location: template.php");
             exit();
         } else {
             echo "Errore durante la registrazione: " . $conn->error;

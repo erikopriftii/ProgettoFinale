@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.product {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 500px;
+    height: 500px;
+    flex-wrap: wrap;
+    display: flex;
+    margin-right:10px ;
+
+}
+
+.row h2 {
+    margin: 0 0 10px 0;
+}
+
+.row p {
+    margin: 0;
+}
+.product_image {
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    display: block;
+    
+}
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    float: left;
+
+}
+nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #111;
+}
+.dx{
+    float: right;
+}
+.titolo {
+    color: black;
+    font-size: 40px;
+    margin-left: 10px;
+    text-align: center;
+}
+.prezzo {
+    font-size: 20px;
+    text-align: center;
+    color: black;
+}
+a:link{
+   
+    text-decoration: none;
+ }
+ .product:hover {
+    opacity: 0.7; 
+}
+.Nome{
+    font-size: 20px;
+    color: black;
+    display: block;
+    text-align: center;
+}
+.Descrizione{
+    font-size: 18px;
+    color: black;
+    display: block;
+    text-align: center;
+    margin-top:10px ;
+}
+.product img{
+    display: block;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}

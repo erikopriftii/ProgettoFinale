@@ -34,11 +34,13 @@ if (isset($_GET['IdRisorsa'])) {
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
+        
         // Insert a new record into the 'acquisti' table
-        $sql = "INSERT INTO acquisti (IdRisorsa, Username) VALUES ('$idRisorsa', '{$_SESSION['username']}')";
+        $sql = "INSERT INTO acquisti (IdRisorsa, Username, DataAcquisto) VALUES ('$idRisorsa', '{$_SESSION['username']}', CURDATE())";
 
         if ($conn->query($sql) === TRUE) {
             echo "Purchase successful!";
+            header('Refresh: 1; URL=catalogo.php');
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }

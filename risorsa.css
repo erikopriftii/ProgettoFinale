@@ -1,28 +1,81 @@
-/* Struttura principale */
-.container {
+/* Layout principale e colori di sfondo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+/* Navigation bar */
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.footer{
+    background-color: darkorange;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+
+nav li {
+    float: left;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #111;
+}
+
+.dx {
+    float: right;
+    margin-right: 10px;
+}
+
+/* Personalizzazione del container prodotto */
+.product {
     display: flex;
-    flex-direction: row;
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
+   
+    justify-content: space-between;
+    flex-direction: column;
     background-color: #fff;
-    font-family: 'Arial', sans-serif;
+    padding: 40px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    max-width: 1200px; /* Regola questa larghezza per adattarla alle tue esigenze */
+    align-items: center; /* Centra gli elementi all'interno del container */
 }
 
-/* Sezione immagine del prodotto */
-.product-image {
-    flex: 1;
-    padding: 20px;
+.product_image {
+    width: 400px;
+    height: 400px;
+    
+    
+
 }
 
-.product-image img {
-    max-width: 100%;
+.product_image img {
+    width: 100%;
     height: auto;
+    max-height: 400px; /* Imposta un'altezza massima per l'immagine */
 }
 
-/* Sezione dettagli del prodotto */
 .product-details {
-    flex: 2;
+    text-align: center; /* Centra il testo se il layout è a colonna */
     padding: 20px;
 }
 
@@ -35,89 +88,31 @@
 .product-price {
     color: #B12704;
     font-size: 28px;
-    margin-bottom: 10px;
+    margin-top: 10px; /* Aggiunge spazio sopra il prezzo per separarlo dall'immagine */
 }
 
 .product-description {
-    font-size: 14px;
+    font-size: 16px;
     color: #555;
     margin-bottom: 20px;
 }
 
-/* Sezione acquisto */
-.purchase-section {
-    flex: 1;
-    padding: 20px;
-    border-left: 1px solid #ddd;
-}
-
-.purchase-section .price {
-    font-size: 28px;
-    color: #B12704;
-    margin-bottom: 20px;
-}
-
-.purchase-section .buy-button {
+.buy-button {
     background-color: #ffa41c;
     color: #000;
     padding: 10px 20px;
     font-size: 18px;
     border: none;
     cursor: pointer;
-    margin-bottom: 10px;
-    width: 100%;
+    margin-top: 10px; /* Aggiunge spazio sopra il bottone per separarlo dal prezzo */
+    width: 50%; /* Regola la larghezza del bottone secondo le esigenze */
 }
 
-.purchase-section .buy-button:hover {
+.buy-button:hover {
     background-color: #f39800;
 }
-
-.purchase-section .add-to-cart-button {
-    background-color: #FFD814;
-    color: #111;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-.purchase-section .add-to-cart-button:hover {
-    background-color: #F7CA00;
-}
-
-.purchase-section .stock-status {
-    font-size: 14px;
-    color: #007600;
-    margin-top: 10px;
-}
-nav {
-    background-color: #333;
-    overflow: hidden;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav li {
-    float: left;
-
-}
-nav a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    background-color: #111;
-}
-.dx {
-    float: right;
-    margin-right: 10px;
+.product-info p {
+    display: flex;
+    text-align: right;
+    
 }

@@ -1,4 +1,5 @@
 <?php
+session_start();
 $host = "localhost";
 $db   = "negozio";
 $username = "root";
@@ -14,6 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"]; 
     $username = $_POST["username"];
     $password = $_POST["password"];
+    $citta = $_POST["citta'"];
+    $via = $_POST["via"];
+    $civico = $_POST["NumeroCivico"];
     
 
     // Verifica se l'utente esiste già nel database
@@ -32,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt_insert->bind_param("sss", $username, $hashed_password, $email);
 
         if ($stmt_insert->execute()) {
+            $_SESSION['username'] = $username; // Salva l'username in sessione
             header("Location: template.php");
             exit();
         } else {

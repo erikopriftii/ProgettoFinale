@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: black;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -97,13 +97,10 @@ a:link{
 
 }
 .footer{
-    background-color: lightblue;
-    color: white;
+    background-color: darkorange;
+    color: black;
     text-align: center;
     padding: 10px;
-    bottom: 0;
-    width: 100%;
-
 }
 
 .dx {
@@ -120,8 +117,6 @@ a:link{
     margin-bottom: 20px;
     margin-left: 10px;
     margin-right: 10px;
-    
-    
 }
 
 p {
@@ -245,7 +240,8 @@ tr:hover {
 
 #titolo {
     font-size: 40px;
-    color: black;
+    color: white;
+    margin-left: 800px;
 }
 
 .scelte {
@@ -278,17 +274,19 @@ scelte:hover {
     width: 150px;
     height: 150px;
 }
-
-
-.sede {
+.sedi{
+    background-color: #f9f9f9;
     margin-bottom: 20px;
-    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.sede img {
-    max-width: 100%;
-    height: auto;
-}
+
+
+
 
 .location_images {
     width: 300px;
@@ -324,7 +322,7 @@ h2{
     
 }
 .risorsa {
-    border: 1px solid black;
+    border: 1px solid darkorange;
     width: 400px;
     border-radius: 5px 5px 5px 5px;
     margin-left: 10px;
@@ -354,20 +352,28 @@ h2{
    
     
 }
+.generic{
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
 .p{
     margin-left: 10px;
 }
 .cat_image{
     width: 300px;
     height: 300px;
-    border: solid 1px black;
+    border: solid 1px darkorange;
+    
 }
 .Descrizione{
     margin-left: 10px;
     color: black;
 }
-.risorse2{display: flex;
+.risorse2{
+    display: flex;
     background-color: #f9f9f9;
+    border-color: darkorange;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -384,4 +390,11 @@ h2{
     height: 400px;
     
     
+}
+#nomeCategoria{
+    color : white;
+    margin-left: 10px;
+    font-size: 20px;
+    text-align: center;
+    font: bold;
 }

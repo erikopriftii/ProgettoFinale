@@ -18,12 +18,10 @@ $selectedCategoria = isset($_POST['categoria']) ? $_POST['categoria'] : null;
 
 // Query per ottenere le risorse, filtrando per categoria se necessario
 $query = "SELECT r.IdRisorsa, r.Nome, r.Descrizione, r.Immagine, r.Prezzo, 
-                 c.Nome_categoria, cent.Indirizzo, 
-                 p.IdAcquisto 
+                 c.Nome_categoria, cent.Indirizzo
           FROM risorse AS r
           JOIN categorie AS c ON r.IdCategoria = c.IdCategoria
-          JOIN centri AS cent ON r.IdCentro = cent.IdCentro
-          LEFT JOIN acquisti AS p ON r.IdRisorsa = p.IdRisorsa AND p.DataRitorno IS NULL";
+          JOIN centri AS cent ON r.IdCentro = cent.IdCentro";
 
 if ($selectedCategoria) {
     $query .= " WHERE r.IdCategoria = :selectedCategoria";
@@ -41,18 +39,20 @@ $risorse = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Catalogo Risorse</title>
     <link rel="stylesheet" href="stylepag1.css">
 </head>
+
 <body>
     <nav>
         <ul>
             <li><a href="template.php">Home</a></li>
             <li class="dx"><a href="Logout.php">Logout</a></li>
             <li><a href="catalogo.php">Prodotti</a></li>
-            <li><a href="#locations">Sedi</a></li>      
+            <li><a href="#locations">Sedi</a></li>
             <li class="dx"><a href="admin.php">Admin</a></li>
         </ul>
     </nav>
@@ -60,9 +60,9 @@ $risorse = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <h1 id="titolo">Catalogo Risorse</h1>
 
     <!-- Form per visualizzare tutte le categorie -->
-    <h2>Tutte le Categorie:</h2>
-    <div class="categorie">    
-        <?php foreach ($categorie as $categoria): ?>
+    <h2 class="generic">Tutte le Categorie:</h2>
+    <div class="categorie">
+        <?php foreach ($categorie as $categoria) : ?>
             <div class="categoria">
                 <a class="link" href="categoria.php?categoria=<?php echo $categoria['IdCategoria']; ?>">
                     <p class="nome_categoria"><?php echo htmlspecialchars($categoria['Nome_categoria']); ?></p>
@@ -71,19 +71,24 @@ $risorse = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         <?php endforeach; ?>
     </div>
-    <h2>Tutte le risorse:</h2>
-        <div class="risorse">
-         <?php foreach ($risorse as $risorsa): ?>
+    <h2 class="generic">Tutte le risorse:</h2>
+    <div class="risorse">
+        <?php foreach ($risorse as $risorsa) : ?>
             <a href="risorsa.php?IdRisorsa=<?php echo $risorsa['IdRisorsa']; ?>">
-            <div class="risorsa">
-                <img class="product_image" src="<?php echo htmlspecialchars($risorsa['Immagine']); ?>"><br>
-                <h3 class="nome_prodotto"><?php echo htmlspecialchars($risorsa['Nome']); ?></h3><br>
-                <p class="prezzo">Prezzo: €<?php echo htmlspecialchars($risorsa['Prezzo']); ?></p><br>
-                
-            </div>
+                <div class="risorsa">
+                    <img class="product_image" src="<?php echo htmlspecialchars($risorsa['Immagine']); ?>"><br>
+                    <h3 class="nome_prodotto"><?php echo htmlspecialchars($risorsa['Nome']); ?></h3><br>
+                    <p class="prezzo">Prezzo: €<?php echo htmlspecialchars($risorsa['Prezzo']); ?></p><br>
+
+                </div>
             </a>
-          <?php endforeach; ?>
-        </div>
-    
+        <?php endforeach; ?>
+    </div>
+    <footer class="footer">
+        <p>&copy; <?php echo date('Y'); ?> SoloSport</p>
+        <p>P. IVA:IT389247382ASD</p>
+        <p>Contatti: 031-123456</p>
+    </footer>
 </body>
+
 </html>

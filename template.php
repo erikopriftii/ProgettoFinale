@@ -1,4 +1,5 @@
 <?php
+session_start();
 $db = new PDO('mysql:host=localhost;dbname=negozio', 'root', '');
 
 // Ottieni tutte le sedi dal database
@@ -21,7 +22,7 @@ $sedi = $sediStmt->fetchAll(PDO::FETCH_ASSOC);
             <li><a href="template.php">Home</a></li>
             <li class="dx"><a href="Logout.php">Logout</a></li>
             <li><a href="catalogo.php">Prodotti</a></li>
-            <li><a href="template.php">Sedi</a></li> 
+            <li><a href="template.php">Sedi</a></li>
             <li class="dx"><a href="admin.php">Admin</a></li>
 
             <h1 class="main-title">Benvenuto su SoloSport</h1>
@@ -30,23 +31,23 @@ $sedi = $sediStmt->fetchAll(PDO::FETCH_ASSOC);
     <section class="intro">
         <div class="paragraph-box">
             <p>Su questo sito puoi trovare ogni prodotto sportivo che desideri, dalle scarpe da corsa a quelle di calcio fino ai guantoni da pugilato </p>
-            
+
         </div>
     </section>
 
 
     <div class="box-resto">
-        <h2>Le nostre sedi:</h2> 
+        <h2>Le nostre sedi:</h2>
         <div class="sedi">
-        <section id="sedi"></section>
-        <?php foreach ($sedi as $sede) : ?>
-            <div class="sede">
-                <p><?php echo htmlspecialchars($sede['Indirizzo']); ?></p>
-                <img class="location_images" src="<?php echo htmlspecialchars($sede['Immagine']); ?>" alt="Immagine della sede" />
-            </div>
-        <?php endforeach; ?>
-        </section>
-    </div>
+            <section id="sedi"></section>
+            <?php foreach ($sedi as $sede) : ?>
+                <div class="sede">
+                    <p><?php echo htmlspecialchars($sede['Indirizzo']); ?></p>
+                    <img class="location_images" src="<?php echo htmlspecialchars($sede['Immagine']); ?>" alt="Immagine della sede" />
+                </div>
+            <?php endforeach; ?>
+            </section>
+        </div>
     </div>
 
     <div class="Oggetti">
@@ -84,6 +85,7 @@ $sedi = $sediStmt->fetchAll(PDO::FETCH_ASSOC);
     <footer class="footer">
         <p>&copy; <?php echo date('Y'); ?> SoloSport</p>
         <p>P. IVA:IT389247382ASD</p>
+        <p>Contatti: 031-123456</p>
     </footer>
 </body>
 
